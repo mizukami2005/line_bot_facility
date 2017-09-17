@@ -33,16 +33,16 @@ post '/callback' do
           text: event.message['text']
         }
         carousel = {
-          "type":     "template",
-          "altText":  "this is a carousel template",
-          "template": {
-            "type":    "carousel",
-            "columns": [
+          type:     "template",
+          altText:  "this is a carousel template",
+          template: {
+            type:    "carousel",
+            columns: [
                          {
-                           "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
-                           "title":             "this is menu",
-                           "text":              "description",
-                           "actions":           [
+                           thumbnailImageUrl: "https://example.com/bot/images/item1.jpg",
+                           title:             "this is menu",
+                           text:              "description",
+                           actions:           [
                                                   {
                                                     "type":  "postback",
                                                     "label": "Buy",
@@ -61,10 +61,10 @@ post '/callback' do
                                                 ]
                          },
                          {
-                           "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
-                           "title":             "this is menu",
-                           "text":              "description",
-                           "actions":           [
+                           thumbnailImageUrl: "https://example.com/bot/images/item2.jpg",
+                           title:             "this is menu",
+                           text:              "description",
+                           actions:           [
                                                   {
                                                     "type":  "postback",
                                                     "label": "Buy",
