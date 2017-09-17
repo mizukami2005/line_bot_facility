@@ -38,51 +38,51 @@ post '/callback' do
           template: {
             type:    "carousel",
             columns: [
-                         {
-                           thumbnailImageUrl: 'https://h-navi.jp/uploads/support_facility/157092/half_0fa2da42-6df4-4f2c-83fa-cab44ea7f95c.png',
-                           title:             'でらいとわーくジュニア　かまたアフタースクール',
-                           text:              '放課後等デイサービス',
-                           actions:           [
-                                                  {
-                                                    "type":  "postback",
-                                                    "label": "Buy",
-                                                    "data":  "action=buy&itemid=111"
-                                                  },
-                                                  {
-                                                    "type":  "postback",
-                                                    "label": "Add to cart",
-                                                    "data":  "action=add&itemid=111"
-                                                  },
-                                                  {
-                                                    "type":  "uri",
-                                                    "label": '詳しく見る',
-                                                    "uri":   'https://h-navi.jp/support_facility/facilities/157092'
-                                                  }
-                                                ]
-                         },
-                         {
-                           thumbnailImageUrl: "https://example.com/bot/images/item2.jpg",
-                           title:             "this is menu",
-                           text:              "description",
-                           actions:           [
-                                                  {
-                                                    "type":  "postback",
-                                                    "label": "Buy",
-                                                    "data":  "action=buy&itemid=222"
-                                                  },
-                                                  {
-                                                    "type":  "postback",
-                                                    "label": "Add to cart",
-                                                    "data":  "action=add&itemid=222"
-                                                  },
-                                                  {
-                                                    "type":  "uri",
-                                                    "label": "View detail",
-                                                    "uri":   "http://example.com/page/222"
-                                                  }
-                                                ]
-                         }
-                       ]
+                       {
+                         thumbnailImageUrl: 'https://h-navi.jp/uploads/support_facility/157092/half_0fa2da42-6df4-4f2c-83fa-cab44ea7f95c.png',
+                         title:             'でらいとわーくジュニア　かまたアフタースクール',
+                         text:              '放課後等デイサービス',
+                         actions:           [
+                                              {
+                                                "type":  "postback",
+                                                "label": "Buy",
+                                                "data":  "action=buy&itemid=111"
+                                              },
+                                              {
+                                                "type":  "uri",
+                                                "label": "電話をかける",
+                                                "uri":   "000-0000-0000"
+                                              },
+                                              {
+                                                "type":  "uri",
+                                                "label": '詳しく見る',
+                                                "uri":   'https://h-navi.jp/support_facility/facilities/157092'
+                                              }
+                                            ]
+                       },
+                       {
+                         thumbnailImageUrl: "https://example.com/bot/images/item2.jpg",
+                         title:             "this is menu",
+                         text:              "description",
+                         actions:           [
+                                              {
+                                                "type":  "postback",
+                                                "label": "Buy",
+                                                "data":  "action=buy&itemid=222"
+                                              },
+                                              {
+                                                "type":  "postback",
+                                                "label": "Add to cart",
+                                                "data":  "action=add&itemid=222"
+                                              },
+                                              {
+                                                "type":  "uri",
+                                                "label": "View detail",
+                                                "uri":   "http://example.com/page/222"
+                                              }
+                                            ]
+                       }
+                     ]
           }
         }
         client.reply_message(event['replyToken'], carousel)
