@@ -51,7 +51,7 @@ post '/callback' do
                                               {
                                                 "type":  "uri",
                                                 "label": "電話をかける",
-                                                "uri":   "000-0000-0000"
+                                                "uri":   "line://call/000-0000-0000"
                                               },
                                               {
                                                 "type":  "uri",
