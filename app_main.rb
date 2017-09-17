@@ -44,41 +44,21 @@ post '/callback' do
                          text:              '放課後等デイサービス',
                          actions:           [
                                               {
-                                                "type":  "postback",
-                                                "label": "Buy",
-                                                "data":  "action=buy&itemid=111"
-                                              },
-                                              {
-                                                "type":  "uri",
-                                                "label": "電話をかける",
-                                                "uri":   "line://call/000-0000-0000"
-                                              },
-                                              {
-                                                "type":  "uri",
-                                                "label": '詳しく見る',
-                                                "uri":   'https://h-navi.jp/support_facility/facilities/157092'
+                                                type:  'uri',
+                                                label: '詳しく見る',
+                                                uri:   'https://h-navi.jp/support_facility/facilities/157092'
                                               }
                                             ]
                        },
                        {
-                         thumbnailImageUrl: "https://example.com/bot/images/item2.jpg",
-                         title:             "this is menu",
-                         text:              "description",
+                         thumbnailImageUrl: 'https://h-navi.jp/uploads/support_facility/157161/half_6737b4bc-23ec-4303-a74f-515a9f5deb06.png',
+                         title:             '発達支援教室にじいろLabo池上',
+                         text:              '放課後等デイサービス',
                          actions:           [
                                               {
-                                                "type":  "postback",
-                                                "label": "Buy",
-                                                "data":  "action=buy&itemid=222"
-                                              },
-                                              {
-                                                "type":  "postback",
-                                                "label": "Add to cart",
-                                                "data":  "action=add&itemid=222"
-                                              },
-                                              {
-                                                "type":  "uri",
-                                                "label": "View detail",
-                                                "uri":   "http://example.com/page/222"
+                                                type:  'uri',
+                                                label: '詳しく見る',
+                                                uri:   'https://h-navi.jp/support_facility/facilities/157161'
                                               }
                                             ]
                        }
