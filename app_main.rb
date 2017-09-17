@@ -39,9 +39,9 @@ post '/callback' do
             type:    "carousel",
             columns: [
                          {
-                           thumbnailImageUrl: "https://example.com/bot/images/item1.jpg",
-                           title:             "this is menu",
-                           text:              "description",
+                           thumbnailImageUrl: 'https://h-navi.jp/uploads/support_facility/157092/half_0fa2da42-6df4-4f2c-83fa-cab44ea7f95c.png',
+                           title:             'でらいとわーくジュニア　かまたアフタースクール',
+                           text:              '放課後等デイサービス',
                            actions:           [
                                                   {
                                                     "type":  "postback",
@@ -55,8 +55,8 @@ post '/callback' do
                                                   },
                                                   {
                                                     "type":  "uri",
-                                                    "label": "View detail",
-                                                    "uri":   "http://example.com/page/111"
+                                                    "label": '詳しく見る',
+                                                    "uri":   'https://h-navi.jp/support_facility/facilities/157092'
                                                   }
                                                 ]
                          },
