@@ -1,5 +1,8 @@
 require 'sinatra'
 require 'line/bot'
+require 'json'
+require 'uri'
+require 'net/http'
 
 get '/' do
   "Hello world Web test"
@@ -28,6 +31,42 @@ post '/callback' do
     when Line::Bot::Event::Message
       case event.type
       when Line::Bot::Event::MessageType::Text
+        if event.message['text'] =~ /(\s|　)/
+          prefecture = $`
+          query = "prefecture=#{prefecture}"
+          uri_string = URI::Generic.build(scheme: 'https', host: 'script.google.com', path: '/macros/s/AKfycbwH5nz9yLEWpt-E43Yff-O7i3gc-PV4NM1-d6SO3KEu/dev', query: query).to_s
+          uri        = URI.parse(uri_string)
+          results    = ''
+
+          begin
+            response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
+              http.get(uri.request_uri)
+            end
+            case response
+            when Net::HTTPSuccess
+              json    = response.body
+              results = JSON.parse(json)
+            end
+          rescue => e
+          end
+
+          columns = []
+
+          if results['rest'].nil?
+            error_message = {
+              type: 'text',
+              text: '見つからなかったよ!'
+            }
+            client.reply_message(event['replyToken'], error_message)
+          else
+            results['data'].each_with_index do |result, index|
+              hash = {}
+              hash['title'] = result['name']
+              columns[index]  = hash
+            end
+          end
+        end
+
         message  = {
           type: 'text',
           text: event.message['text']
@@ -37,52 +76,7 @@ post '/callback' do
           altText:  "this is a carousel template",
           template: {
             type:    "carousel",
-            columns: [
-                       {
-                         thumbnailImageUrl: 'https://h-navi.jp/uploads/support_facility/157092/half_0fa2da42-6df4-4f2c-83fa-cab44ea7f95c.png',
-                         title:             'でらいとわーくジュニア　かまたアフタースクール',
-                         text:              '放課後等デイサービス',
-                         actions:           [
-                                              {
-                                                type:  'postback',
-                                                label: '電話をかける',
-                                                data:  "tel=080-0000-0000"
-                                              },
-                                              {
-                                                type:  'uri',
-                                                label: 'WEB問い合わせ',
-                                                uri:   'https://h-navi.jp/support_facility/facilities/157092/inquiries/new'
-                                              },
-                                              {
-                                                type:  'uri',
-                                                label: '詳しく見る',
-                                                uri:   'https://h-navi.jp/support_facility/facilities/157092'
-                                              }
-                                            ]
-                       },
-                       {
-                         thumbnailImageUrl: 'https://h-navi.jp/uploads/support_facility/157161/half_6737b4bc-23ec-4303-a74f-515a9f5deb06.png',
-                         title:             '発達支援教室にじいろLabo池上',
-                         text:              '放課後等デイサービス',
-                         actions:           [
-                                              {
-                                                type:  'postback',
-                                                label: '電話をかける',
-                                                data:  "tel=090-0000-0000"
-                                              },
-                                              {
-                                                type:  'uri',
-                                                label: 'WEB問い合わせ',
-                                                uri:   'https://h-navi.jp/support_facility/facilities/157161/inquiries/new'
-                                              },
-                                              {
-                                                type:  'uri',
-                                                label: '詳しく見る',
-                                                uri:   'https://h-navi.jp/support_facility/facilities/157161'
-                                              }
-                                            ]
-                       }
-                     ]
+            columns: columns
           }
         }
         client.reply_message(event['replyToken'], carousel)
