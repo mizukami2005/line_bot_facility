@@ -91,6 +91,15 @@ post '/callback' do
         tf       = Tempfile.open("content")
         tf.write(response.body)
       end
+    when Line::Bot::Event::Postback
+      if event["postback"]["data"].include?('tel')
+        tel    = event["postback"]["data"].split('=')
+        message = {
+          type: 'text',
+          text: tel[1]
+        }
+      end
+      client.reply_message(event['replyToken'], message)
     end
   }
 
