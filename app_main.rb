@@ -50,6 +50,11 @@ post '/callback' do
                                               },
                                               {
                                                 type:  'uri',
+                                                label: 'WEB問い合わせ',
+                                                uri:   'https://h-navi.jp/support_facility/facilities/157092/inquiries/new'
+                                              },
+                                              {
+                                                type:  'uri',
                                                 label: '詳しく見る',
                                                 uri:   'https://h-navi.jp/support_facility/facilities/157092'
                                               }
@@ -64,6 +69,11 @@ post '/callback' do
                                                 type:  'postback',
                                                 label: '電話をかける',
                                                 data:  "tel=090-0000-0000"
+                                              },
+                                              {
+                                                type:  'uri',
+                                                label: 'WEB問い合わせ',
+                                                uri:   'https://h-navi.jp/support_facility/facilities/157161/inquiries/new'
                                               },
                                               {
                                                 type:  'uri',
