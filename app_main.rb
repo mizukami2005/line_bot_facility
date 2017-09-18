@@ -44,9 +44,9 @@ post '/callback' do
                          text:              '放課後等デイサービス',
                          actions:           [
                                               {
-                                                type:  "postback",
-                                                label: "投票",
-                                                data:  "name=hoge"
+                                                type:  'postback',
+                                                label: '電話をかける',
+                                                data:  "tel=080-0000-0000"
                                               },
                                               {
                                                 type:  'uri',
@@ -61,9 +61,9 @@ post '/callback' do
                          text:              '放課後等デイサービス',
                          actions:           [
                                               {
-                                                type:  "postback",
-                                                label: "投票",
-                                                data:  "name=hoge"
+                                                type:  'postback',
+                                                label: '電話をかける',
+                                                data:  "tel=090-0000-0000"
                                               },
                                               {
                                                 type:  'uri',
