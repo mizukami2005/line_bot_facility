@@ -8,7 +8,7 @@ get '/' do
   "Hello world Web test"
   prefecture = "東京都"
   query = "prefecture=#{prefecture}"
-  uri_string = URI::Generic.build(scheme: 'https', host: 'script.google.com', path: '/macros/s/AKfycbwH5nz9yLEWpt-E43Yff-O7i3gc-PV4NM1-d6SO3KEu/dev', query: query).to_s
+  uri_string = URI::Generic.build(scheme: 'https', host: 'script.google.com', path: '/macros/s/AKfycbwH5nz9yLEWpt-E43Yff-O7i3gc-PV4NM1-d6SO3KEu/dev').to_s
   uri        = URI.parse(uri_string)
   results    = ''
 
@@ -20,10 +20,12 @@ get '/' do
     when Net::HTTPSuccess
       json    = response.body
       results = JSON.parse(json)
+      p "OK"
+      p results
     end
   rescue => e
   end
-  results
+
 end
 
 def client
