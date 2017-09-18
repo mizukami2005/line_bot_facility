@@ -44,6 +44,11 @@ post '/callback' do
                          text:              '放課後等デイサービス',
                          actions:           [
                                               {
+                                                type:  "postback",
+                                                label: "投票",
+                                                data:  "name=hoge"
+                                              },
+                                              {
                                                 type:  'uri',
                                                 label: '詳しく見る',
                                                 uri:   'https://h-navi.jp/support_facility/facilities/157092'
@@ -55,6 +60,11 @@ post '/callback' do
                          title:             '発達支援教室にじいろLabo池上',
                          text:              '放課後等デイサービス',
                          actions:           [
+                                              {
+                                                type:  "postback",
+                                                label: "投票",
+                                                data:  "name=hoge"
+                                              },
                                               {
                                                 type:  'uri',
                                                 label: '詳しく見る',
