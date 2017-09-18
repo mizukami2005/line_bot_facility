@@ -92,8 +92,8 @@ post '/callback' do
         tf.write(response.body)
       end
     when Line::Bot::Event::Postback
-      if event["postback"]["data"].include?('tel')
-        tel    = event["postback"]["data"].split('=')
+      if event['postback']['data'].include?('tel')
+        tel    = event['postback']['data'].split('=')
         message = {
           type: 'text',
           text: tel[1]
