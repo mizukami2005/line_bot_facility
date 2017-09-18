@@ -6,6 +6,24 @@ require 'net/http'
 
 get '/' do
   "Hello world Web test"
+  prefecture = "東京都"
+  query = "prefecture=#{prefecture}"
+  uri_string = URI::Generic.build(scheme: 'https', host: 'script.google.com', path: '/macros/s/AKfycbwH5nz9yLEWpt-E43Yff-O7i3gc-PV4NM1-d6SO3KEu/dev', query: query).to_s
+  uri        = URI.parse(uri_string)
+  results    = ''
+
+  begin
+    response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
+      http.get(uri.request_uri)
+    end
+    case response
+    when Net::HTTPSuccess
+      json    = response.body
+      results = JSON.parse(json)
+    end
+  rescue => e
+  end
+  results
 end
 
 def client
